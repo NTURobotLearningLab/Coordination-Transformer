@@ -1,0 +1,10 @@
+# Generated / downloaded data (paths from coot_config.py)
+policy_pool/
+rollouts/
+datasets/
+models/
+smoke_logs/
+eval_csv/runs/
+__pycache__/
+*.pyc
+wandb/

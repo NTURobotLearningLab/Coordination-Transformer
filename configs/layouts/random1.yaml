@@ -1,0 +1,26 @@
+# Coord. Ring
+layout_name: random1
+state_shape: [5, 5, 20]
+state_dim: 500
+overcooked_version: old
+
+# Reward weights passed to the env. Rendering uses the plain sparse weights; evaluation uses the
+# HSP bias-weight space below (only affects shaped-reward bookkeeping, not the sparse return).
+render_w0: "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1"
+render_w1: "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1"
+eval_w0: "0,0,0,0,[-20:0:10],0,[-20:0:10],0,3,5,3,[-20:0],[-0.1:0:0.1],0,0,0,0,[0.1:1]"
+eval_w1: "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1"
+
+seeds:
+  train_hsp: [1, 4, 5, 6, 7, 11, 13, 14, 19, 22, 26, 28, 30, 38, 41, 42, 43, 44, 49, 51, 52]
+  train_mep: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+  val: [2, 8, 12, 15, 20, 50]            # validation split of the CooT dataset
+  test: [2, 12, 15, 16, 17, 20, 27, 31, 50]   # evaluation partners (Table 1)
+  set2: [3, 17, 18, 23, 24, 27, 29, 39, 46, 48]   # Table 14, Set 2
+  set3: [10, 17, 25, 27, 32, 39, 40, 46]          # Table 14, Set 3
+
+# Smaller training populations (Table 18)
+populations:
+  36: {train_hsp: all, train_mep: all}
+  24: {train_hsp: [1, 4, 6, 7, 13, 14, 19, 22, 28, 41, 42, 43, 44, 49], train_mep: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+  12: {train_hsp: [4, 5, 6, 19, 42, 43, 49], train_mep: [1, 2, 3, 4, 5]}

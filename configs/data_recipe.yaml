@@ -1,0 +1,18 @@
+# Rollouts collected per partner before building the CooT dataset (paper Appendix B.1).
+# Each raw group is rendered with render_overcooked.py; compose_rollouts.py then merges
+# raw groups into the three pools that collect_data.py reads.
+raw_groups:
+  hsp_final_none:  {agent: hsp, seeds: train_hsp, skill_level: final, noise: none,  episodes: 160}
+  hsp_final_small: {agent: hsp, seeds: train_hsp, skill_level: final, noise: small, episodes: 30}
+  hsp_final_mid:   {agent: hsp, seeds: train_hsp, skill_level: final, noise: mid,   episodes: 30}
+  hsp_mid_none:    {agent: hsp, seeds: train_hsp, skill_level: mid,   noise: none,  episodes: 30}
+  mep_final_none:  {agent: mep, seeds: train_mep, skill_level: final, noise: none,  episodes: 200}
+  hsp_val_none:    {agent: hsp, seeds: val,       skill_level: final, noise: none,  episodes: 50}
+
+# HSP partners: 160 final + 30 small-noise + 30 mid-noise + 30 mid-skill = 250 per partner.
+pools:
+  hsp_train: [hsp_final_none, hsp_final_small, hsp_final_mid, hsp_mid_none]
+  mep_train: [mep_final_none]
+  hsp_val: [hsp_val_none]
+
+noise_rates: {small: 0.15, mid: 0.25}
