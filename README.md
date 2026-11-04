@@ -6,6 +6,10 @@ Code for **Coordination Transformer (CooT)** (ICML 2026), an in-context learning
 
 This repository covers CooT on Overcooked: generating partner/best-response rollouts, building the CooT dataset, training CooT, and evaluating it with unseen partners. Baselines and the Google Research Football experiments are not included.
 
+<p align="center">
+  <img src="assets/coot_overview.png" alt="CooT overview: (a) training on partner / best-response trajectories, (b) in-context coordination with an unseen partner across episodes" width="100%">
+</p>
+
 ## Contents
 
 - [Installation](#installation)
